@@ -397,16 +397,16 @@ func (e *periodicExporter) scrapeNodes() {
 	metricsChan := make(chan prometheus.Metric)
 	go e.setMetrics(metricsChan)
 
-	# poolSize := concurrentFetch
-	# urlCount := masterUrlsSize + slaveUrlsSize
-	# if urlCount < concurrentFetch {
-	#	poolSize = urlCount
-	# }
+	// poolSize := concurrentFetch
+	// urlCount := masterUrlsSize + slaveUrlsSize
+	// if urlCount < concurrentFetch {
+	//	poolSize = urlCount
+	// }
 	urlCount := masterUrlsSize + slaveUrlsSize
 	poolSize := urlCount
-	# TODO: pool size upper limit usage is broken by bolcom's patch
-	# by temporary fix above, made it work for clusters with slave count greater then concurrentFetch limit
-	# need to fix it with an upper limit as it was in old days
+	// TODO: pool size upper limit usage is broken by bolcom's patch
+	// by temporary fix above, made it work for clusters with slave count greater then concurrentFetch limit
+	// need to fix it with an upper limit as it was in old days
 
 	log.Debugf("creating fetch pool of size %d", poolSize)
 
